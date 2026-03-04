@@ -4,7 +4,7 @@
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | shipper_id | string | ✅ | | [shippers](../shippers/) |
 | name | string | ✅ | min_length:2, max_length:100 | |
 | service_level | string | ✅ | enum: economy, standard, express, overnight | |
@@ -16,7 +16,7 @@
 
 ### Example Records
 
-| id | shipper_id | name | service_level | base_price | currency_id | est. days min | est. days max |
+| $ID | shipper_id | name | service_level | base_price | currency_id | est. days min | est. days max |
 |----|:----------:|------|:-------------:|:----------:|:-----------:|:-------------:|:-------------:|
 | fedex-standard | fedex | FedEx Standard | standard | 5.99 | USD | 3 | 5 |
 | fedex-express | fedex | FedEx Express | express | 14.99 | USD | 1 | 2 |
@@ -41,7 +41,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     max_length: 64
@@ -83,7 +83,7 @@ columns:
     required: true
 
 columns_order:
-  - id
+  - "$ID"
   - shipper_id
   - name
   - service_level

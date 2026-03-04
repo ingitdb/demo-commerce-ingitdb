@@ -4,7 +4,7 @@
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | code | string | ✅ | min_length:3, max_length:32, regex:`^[A-Z0-9_\-]+$` | |
 | description | string | ❌ | max_length:500 | |
 | discount_type | string | ✅ | enum: percent, fixed | |
@@ -19,7 +19,7 @@
 
 ### Example Records
 
-| id | code | discount_type | discount_value | currency_id | min_order_amount | valid_from | valid_until | max_uses | uses_count |
+| $ID | code | discount_type | discount_value | currency_id | min_order_amount | valid_from | valid_until | max_uses | uses_count |
 |----|------|:-------------:|:--------------:|:-----------:|:----------------:|:----------:|:-----------:|:--------:|:----------:|
 | promo-summer24 | SUMMER24 | percent | 10.0 | | 50.00 | 2024-06-01 | 2024-08-31 | 1000 | 342 |
 | promo-welcome | WELCOME15 | percent | 15.0 | | | 2023-01-01 | | | 1987 |
@@ -43,7 +43,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     max_length: 64
@@ -99,7 +99,7 @@ columns:
     required: true
 
 columns_order:
-  - id
+  - "$ID"
   - code
   - description
   - discount_type

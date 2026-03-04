@@ -10,7 +10,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     min_length: 2
@@ -38,7 +38,7 @@ columns:
     # enum: [Africa, Americas, Asia, Europe, Oceania]
 
 columns_order:
-  - id
+  - "$ID"
   - name
   - currency_id
   - phone_prefix

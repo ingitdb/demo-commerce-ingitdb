@@ -4,7 +4,7 @@
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | customer_id | string | ✅ | | [customers](../customers/) |
 | label | string | ❌ | max_length:64 | |
 | line1 | string | ✅ | min_length:1, max_length:128 | |
@@ -17,7 +17,7 @@
 
 ### Example Records
 
-| id | customer_id | label | line1 | city | state | postal_code | country_id | is_default |
+| $ID | customer_id | label | line1 | city | state | postal_code | country_id | is_default |
 |----|-------------|-------|-------|------|-------|:-----------:|:----------:|:----------:|
 | addr-001 | cust-001 | Home | 42 Maple Ave | San Francisco | CA | 94102 | US | true |
 | addr-002 | cust-001 | Work | 100 Market St Ste 900 | San Francisco | CA | 94105 | US | false |
@@ -42,7 +42,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     max_length: 64
@@ -86,7 +86,7 @@ columns:
     required: true
 
 columns_order:
-  - id
+  - "$ID"
   - customer_id
   - label
   - line1

@@ -76,7 +76,7 @@ graph LR
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | min_length:3, max_length:3, regex:`^[A-Z]{3}$` | |
+| $ID | string | ✅ | min_length:3, max_length:3, regex:`^[A-Z]{3}$` | |
 | name | string | ✅ | min_length:2, max_length:64 | |
 | symbol | string | ✅ | min_length:1, max_length:8 | |
 | decimal_places | int | ✅ | min:0, max:4 | |
@@ -84,7 +84,7 @@ graph LR
 
 ### Example Records
 
-| id | name | symbol | decimal_places | is_active |
+| $ID | name | symbol | decimal_places | is_active |
 |----|------|--------|:--------------:|:---------:|
 | USD | US Dollar | $ | 2 | true |
 | EUR | Euro | € | 2 | true |
@@ -111,7 +111,7 @@ graph LR
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | from_currency_id | string | ✅ | | [currencies](currencies/) |
 | to_currency_id | string | ✅ | | [currencies](currencies/) |
 | rate | float | ✅ | min:0 | |
@@ -120,7 +120,7 @@ graph LR
 
 ### Example Records
 
-| id | from_currency_id | to_currency_id | rate | effective_date | source |
+| $ID | from_currency_id | to_currency_id | rate | effective_date | source |
 |----|:----------------:|:--------------:|-----:|----------------|--------|
 | usd-eur-2024-01-01 | USD | EUR | 0.9182 | 2024-01-01 | ECB |
 | usd-gbp-2024-01-01 | USD | GBP | 0.7895 | 2024-01-01 | ECB |
@@ -135,7 +135,7 @@ graph LR
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | min_length:2, max_length:2, regex:`^[A-Z]{2}$` | |
+| $ID | string | ✅ | min_length:2, max_length:2, regex:`^[A-Z]{2}$` | |
 | name | string | ✅ | min_length:2, max_length:100 | |
 | currency_id | string | ✅ | | [currencies](currencies/) |
 | phone_prefix | string | ✅ | regex:`^\+\d{1,4}$` | |
@@ -143,7 +143,7 @@ graph LR
 
 ### Example Records
 
-| id | name | currency_id | phone_prefix | region |
+| $ID | name | currency_id | phone_prefix | region |
 |----|------|:-----------:|:------------:|--------|
 | US | United States | USD | +1 | Americas |
 | GB | United Kingdom | GBP | +44 | Europe |
@@ -166,7 +166,7 @@ graph LR
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | first_name | string | ✅ | min_length:1, max_length:64 | |
 | last_name | string | ✅ | min_length:1, max_length:64 | |
 | email | string | ✅ | max_length:254, regex:`^[^@\s]+@[^@\s]+\.[^@\s]+$` | |
@@ -179,7 +179,7 @@ graph LR
 
 ### Example Records
 
-| id | first_name | last_name | email | phone | country_id | preferred_currency_id | is_active |
+| $ID | first_name | last_name | email | phone | country_id | preferred_currency_id | is_active |
 |----|-----------|-----------|-------|-------|:----------:|:--------------------:|:---------:|
 | cust-001 | Alice | Johnson | alice.johnson@example.com | +14155550101 | US | USD | true |
 | cust-002 | Bruno | Müller | bruno.mueller@example.de | +4930555012 | DE | EUR | true |
@@ -199,7 +199,7 @@ graph LR
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | customer_id | string | ✅ | | [customers](customers/) |
 | label | string | ❌ | max_length:64 | |
 | line1 | string | ✅ | min_length:1, max_length:128 | |
@@ -212,7 +212,7 @@ graph LR
 
 ### Example Records
 
-| id | customer_id | label | line1 | city | state | postal_code | country_id | is_default |
+| $ID | customer_id | label | line1 | city | state | postal_code | country_id | is_default |
 |----|-------------|-------|-------|------|-------|:-----------:|:----------:|:----------:|
 | addr-001 | cust-001 | Home | 42 Maple Ave | San Francisco | CA | 94102 | US | true |
 | addr-002 | cust-001 | Work | 100 Market St Ste 900 | San Francisco | CA | 94105 | US | false |
@@ -231,7 +231,7 @@ graph LR
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | name | string | ✅ | min_length:2, max_length:100 | |
 | parent_category_id | string | ❌ | | [product_categories](product_categories/) |
 | description | string | ❌ | max_length:500 | |
@@ -240,7 +240,7 @@ graph LR
 
 ### Example Records
 
-| id | name | parent_category_id | sort_order | is_active |
+| $ID | name | parent_category_id | sort_order | is_active |
 |----|------|--------------------|:----------:|:---------:|
 | electronics | Electronics | | 1 | true |
 | smartphones | Smartphones | electronics | 1 | true |
@@ -261,7 +261,7 @@ graph LR
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | url | string | ✅ | max_length:512, regex:`^https?://` | |
 | alt_text | string | ✅ | max_length:255 | |
 | width_px | int | ❌ | min:1 | |
@@ -270,7 +270,7 @@ graph LR
 
 ### Example Records
 
-| id | url | alt_text | width_px | height_px |
+| $ID | url | alt_text | width_px | height_px |
 |----|-----|----------|:--------:|:---------:|
 | img-001 | https://cdn.example.com/products/phone-x1-front.jpg | Phone X1 front view | 1200 | 1200 |
 | img-002 | https://cdn.example.com/products/phone-x1-back.jpg | Phone X1 rear view | 1200 | 1200 |
@@ -288,7 +288,7 @@ graph LR
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | sku | string | ✅ | min_length:3, max_length:64, regex:`^[A-Z0-9\-]+$` | |
 | name | string | ✅ | min_length:2, max_length:200 | |
 | description | string | ❌ | max_length:2000 | |
@@ -303,7 +303,7 @@ graph LR
 
 ### Example Records
 
-| id | sku | name | category_id | supplier_id | image_id | unit_price | currency_id | stock_quantity |
+| $ID | sku | name | category_id | supplier_id | image_id | unit_price | currency_id | stock_quantity |
 |----|-----|------|-------------|-------------|----------|:----------:|:-----------:|:--------------:|
 | prod-001 | PHONE-X1-128 | Phone X1 128 GB | smartphones | sup-001 | img-001 | 799.99 | USD | 250 |
 | prod-002 | LAPTOP-PRO-15 | Laptop Pro 15" | laptops | sup-002 | img-003 | 1299.00 | USD | 80 |
@@ -321,7 +321,7 @@ graph LR
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | name | string | ✅ | min_length:2, max_length:200 | |
 | contact_name | string | ❌ | max_length:100 | |
 | email | string | ✅ | max_length:254, regex:`^[^@\s]+@[^@\s]+\.[^@\s]+$` | |
@@ -332,7 +332,7 @@ graph LR
 
 ### Example Records
 
-| id | name | contact_name | email | country_id | website | is_active |
+| $ID | name | contact_name | email | country_id | website | is_active |
 |----|------|-------------|-------|:----------:|---------|:---------:|
 | sup-001 | TechSource Ltd | Jenny Park | supply@techsource.example | US | https://techsource.example | true |
 | sup-002 | Computex GmbH | Klaus Werner | orders@computex.example | DE | https://computex.example | true |
@@ -350,7 +350,7 @@ graph LR
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | name | string | ✅ | min_length:2, max_length:100 | |
 | tracking_url_template | string | ❌ | max_length:512 | |
 | contact_email | string | ❌ | max_length:254, regex:`^[^@\s]+@[^@\s]+\.[^@\s]+$` | |
@@ -361,7 +361,7 @@ graph LR
 
 ### Example Records
 
-| id | name | tracking_url_template | contact_email | is_active |
+| $ID | name | tracking_url_template | contact_email | is_active |
 |----|------|-----------------------|---------------|:---------:|
 | fedex | FedEx | `https://www.fedex.com/apps/fedextrack/?tracknumbers={tracking_number}` | support@fedex.example | true |
 | ups | UPS | `https://www.ups.com/track?tracknum={tracking_number}` | support@ups.example | true |
@@ -379,7 +379,7 @@ graph LR
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | shipper_id | string | ✅ | | [shippers](shippers/) |
 | name | string | ✅ | min_length:2, max_length:100 | |
 | service_level | string | ✅ | enum: economy, standard, express, overnight | |
@@ -391,7 +391,7 @@ graph LR
 
 ### Example Records
 
-| id | shipper_id | name | service_level | base_price | currency_id | est. days min | est. days max |
+| $ID | shipper_id | name | service_level | base_price | currency_id | est. days min | est. days max |
 |----|:----------:|------|:-------------:|:----------:|:-----------:|:-------------:|:-------------:|
 | fedex-standard | fedex | FedEx Standard | standard | 5.99 | USD | 3 | 5 |
 | fedex-express | fedex | FedEx Express | express | 14.99 | USD | 1 | 2 |
@@ -410,7 +410,7 @@ graph LR
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | country_id | string | ✅ | | [countries](countries/) |
 | region | string | ❌ | max_length:100 | |
 | label | string | ✅ | max_length:50 | |
@@ -420,7 +420,7 @@ graph LR
 
 ### Example Records
 
-| id | country_id | region | label | rate_percent | effective_date | is_active |
+| $ID | country_id | region | label | rate_percent | effective_date | is_active |
 |----|:----------:|--------|-------|:------------:|----------------|:---------:|
 | us-ca-sales | US | CA | Sales Tax | 8.25 | 2020-01-01 | true |
 | us-ny-sales | US | NY | Sales Tax | 8.875 | 2021-03-01 | true |
@@ -436,7 +436,7 @@ graph LR
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | code | string | ✅ | min_length:3, max_length:32, regex:`^[A-Z0-9_\-]+$` | |
 | description | string | ❌ | max_length:500 | |
 | discount_type | string | ✅ | enum: percent, fixed | |
@@ -451,7 +451,7 @@ graph LR
 
 ### Example Records
 
-| id | code | discount_type | discount_value | currency_id | min_order_amount | valid_from | valid_until | max_uses | uses_count |
+| $ID | code | discount_type | discount_value | currency_id | min_order_amount | valid_from | valid_until | max_uses | uses_count |
 |----|------|:-------------:|:--------------:|:-----------:|:----------------:|:----------:|:-----------:|:--------:|:----------:|
 | promo-summer24 | SUMMER24 | percent | 10.0 | | 50.00 | 2024-06-01 | 2024-08-31 | 1000 | 342 |
 | promo-welcome | WELCOME15 | percent | 15.0 | | | 2023-01-01 | | | 1987 |
@@ -469,7 +469,7 @@ graph LR
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | customer_id | string | ✅ | | [customers](customers/) |
 | billing_address_id | string | ✅ | | [addresses](addresses/) |
 | shipping_address_id | string | ✅ | | [addresses](addresses/) |
@@ -490,7 +490,7 @@ graph LR
 
 ### Example Records
 
-| id | customer_id | shipping_option_id | currency_id | status | subtotal | discount | tax | shipping | total | placed_at |
+| $ID | customer_id | shipping_option_id | currency_id | status | subtotal | discount | tax | shipping | total | placed_at |
 |----|------------|:------------------:|:-----------:|:------:|:--------:|:--------:|:---:|:--------:|:-----:|-----------|
 | ord-2024-0001 | cust-001 | fedex-standard | USD | delivered | 819.98 | 0.00 | 67.64 | 5.99 | 893.61 | 2024-02-14T10:32:00Z |
 | ord-2024-0002 | cust-002 | dhl-economy | EUR | shipped | 1299.00 | 129.90 | 93.53 | 3.99 | 1266.62 | 2024-03-01T16:45:00Z |
@@ -512,7 +512,7 @@ record_file:
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | product_id | string | ✅ | | [products](products/) |
 | quantity | int | ✅ | min:1 | |
 | unit_price | float | ✅ | min:0 | |
@@ -524,7 +524,7 @@ record_file:
 
 > The records below belong to order `ord-2024-0001`.
 
-| id | product_id | quantity | unit_price | currency_id | discount_percent | line_total |
+| $ID | product_id | quantity | unit_price | currency_id | discount_percent | line_total |
 |----|:----------:|:--------:|:----------:|:-----------:|:----------------:|:----------:|
 | line-001 | prod-001 | 1 | 799.99 | USD | | 799.99 |
 | line-002 | prod-003 | 1 | 19.99 | USD | | 19.99 |

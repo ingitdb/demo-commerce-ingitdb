@@ -1,4 +1,3 @@
-id: ups_express
 shipper_id: ups
 name: UPS 2-Day Express
 service_level: express

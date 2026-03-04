@@ -10,7 +10,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     max_length: 64
@@ -34,7 +34,7 @@ columns:
     required: true
 
 columns_order:
-  - id
+  - "$ID"
   - name
   - tracking_url_template
   - contact_email

@@ -1,4 +1,3 @@
-id: fedex_overnight
 shipper_id: fedex
 name: FedEx Overnight
 service_level: overnight

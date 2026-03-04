@@ -4,7 +4,7 @@
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | name | string | ✅ | min_length:2, max_length:100 | |
 | tracking_url_template | string | ❌ | max_length:512 | |
 | contact_email | string | ❌ | max_length:254, regex:`^[^@\s]+@[^@\s]+\.[^@\s]+$` | |
@@ -15,7 +15,7 @@
 
 ### Example Records
 
-| id | name | tracking_url_template | contact_email | is_active |
+| $ID | name | tracking_url_template | contact_email | is_active |
 |----|------|-----------------------|---------------|:---------:|
 | fedex | FedEx | `https://www.fedex.com/apps/fedextrack/?tracknumbers={tracking_number}` | support@fedex.example | true |
 | ups | UPS | `https://www.ups.com/track?tracknum={tracking_number}` | support@ups.example | true |
@@ -39,7 +39,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     max_length: 64
@@ -63,7 +63,7 @@ columns:
     required: true
 
 columns_order:
-  - id
+  - "$ID"
   - name
   - tracking_url_template
   - contact_email

@@ -7,7 +7,7 @@ record_file:
   format: json
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     max_length: 64
@@ -42,7 +42,7 @@ columns:
     # min: 0
 
 columns_order:
-  - id
+  - "$ID"
   - product_id
   - quantity
   - unit_price

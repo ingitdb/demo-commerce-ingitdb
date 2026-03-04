@@ -4,7 +4,7 @@
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | first_name | string | ✅ | min_length:1, max_length:64 | |
 | last_name | string | ✅ | min_length:1, max_length:64 | |
 | email | string | ✅ | max_length:254, regex:`^[^@\s]+@[^@\s]+\.[^@\s]+$` | |
@@ -17,7 +17,7 @@
 
 ### Example Records
 
-| id | first_name | last_name | email | phone | country_id | preferred_currency_id | is_active |
+| $ID | first_name | last_name | email | phone | country_id | preferred_currency_id | is_active |
 |----|-----------|-----------|-------|-------|:----------:|:--------------------:|:---------:|
 | cust-001 | Alice | Johnson | alice.johnson@example.com | +14155550101 | US | USD | true |
 | cust-002 | Bruno | Müller | bruno.mueller@example.de | +4930555012 | DE | EUR | true |
@@ -43,7 +43,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     max_length: 64
@@ -88,7 +88,7 @@ columns:
     max_length: 1000
 
 columns_order:
-  - id
+  - "$ID"
   - first_name
   - last_name
   - email

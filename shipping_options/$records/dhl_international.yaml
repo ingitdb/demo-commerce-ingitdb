@@ -1,4 +1,3 @@
-id: dhl_international
 shipper_id: dhl
 name: DHL International Express
 service_level: express

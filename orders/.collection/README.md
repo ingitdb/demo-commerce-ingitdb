@@ -10,7 +10,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     max_length: 64
@@ -83,7 +83,7 @@ columns:
     max_length: 1000
 
 columns_order:
-  - id
+  - "$ID"
   - customer_id
   - billing_address_id
   - shipping_address_id

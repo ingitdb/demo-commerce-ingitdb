@@ -10,7 +10,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     max_length: 64
@@ -36,7 +36,7 @@ columns:
     max_length: 128
 
 columns_order:
-  - id
+  - "$ID"
   - from_currency_id
   - to_currency_id
   - rate

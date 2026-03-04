@@ -4,7 +4,7 @@
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | min_length:3, max_length:3, regex:`^[A-Z]{3}$` | |
+| $ID | string | ✅ | min_length:3, max_length:3, regex:`^[A-Z]{3}$` | |
 | name | string | ✅ | min_length:2, max_length:64 | |
 | symbol | string | ✅ | min_length:1, max_length:8 | |
 | decimal_places | int | ✅ | min:0, max:4 | |
@@ -12,7 +12,7 @@
 
 ### Example Records
 
-| id | name | symbol | decimal_places | is_active |
+| $ID | name | symbol | decimal_places | is_active |
 |----|------|--------|:--------------:|:---------:|
 | USD | US Dollar | $ | 2 | true |
 | EUR | Euro | € | 2 | true |
@@ -45,7 +45,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     min_length: 3
@@ -73,7 +73,7 @@ columns:
     required: true
 
 columns_order:
-  - id
+  - "$ID"
   - name
   - symbol
   - decimal_places

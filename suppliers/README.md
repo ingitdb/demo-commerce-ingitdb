@@ -4,7 +4,7 @@
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | name | string | ✅ | min_length:2, max_length:200 | |
 | contact_name | string | ❌ | max_length:100 | |
 | email | string | ✅ | max_length:254, regex:`^[^@\s]+@[^@\s]+\.[^@\s]+$` | |
@@ -15,7 +15,7 @@
 
 ### Example Records
 
-| id | name | contact_name | email | country_id | website | is_active |
+| $ID | name | contact_name | email | country_id | website | is_active |
 |----|------|-------------|-------|:----------:|---------|:---------:|
 | sup-001 | TechSource Ltd | Jenny Park | supply@techsource.example | US | https://techsource.example | true |
 | sup-002 | Computex GmbH | Klaus Werner | orders@computex.example | DE | https://computex.example | true |
@@ -39,7 +39,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     max_length: 64
@@ -78,7 +78,7 @@ columns:
     required: true
 
 columns_order:
-  - id
+  - "$ID"
   - name
   - contact_name
   - email

@@ -1,4 +1,3 @@
-id: usps_economy
 shipper_id: usps
 name: USPS Media Mail
 service_level: economy

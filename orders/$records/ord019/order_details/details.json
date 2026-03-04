@@ -1,6 +1,6 @@
 [
   {
-    "id": "od_ord019_001",
+    "$ID": "od_ord019_001",
     "product_id": "prod019",
     "quantity": 2,
     "unit_price": 79.99,
@@ -9,7 +9,7 @@
     "discount_percent": 15.0
   },
   {
-    "id": "od_ord019_002",
+    "$ID": "od_ord019_002",
     "product_id": "prod021",
     "quantity": 1,
     "unit_price": 89.99,

@@ -4,7 +4,7 @@
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | country_id | string | ✅ | | [countries](../countries/) |
 | region | string | ❌ | max_length:100 | |
 | label | string | ✅ | max_length:50 | |
@@ -14,7 +14,7 @@
 
 ### Example Records
 
-| id | country_id | region | label | rate_percent | effective_date | is_active |
+| $ID | country_id | region | label | rate_percent | effective_date | is_active |
 |----|:----------:|--------|-------|:------------:|----------------|:---------:|
 | us-ca-sales | US | CA | Sales Tax | 8.25 | 2020-01-01 | true |
 | us-ny-sales | US | NY | Sales Tax | 8.875 | 2021-03-01 | true |
@@ -36,7 +36,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     max_length: 64
@@ -66,7 +66,7 @@ columns:
     required: true
 
 columns_order:
-  - id
+  - "$ID"
   - country_id
   - region
   - label

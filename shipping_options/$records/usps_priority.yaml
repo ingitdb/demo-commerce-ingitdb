@@ -1,4 +1,3 @@
-id: usps_priority
 shipper_id: usps
 name: USPS Priority Mail
 service_level: standard

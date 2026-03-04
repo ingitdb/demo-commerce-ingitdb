@@ -10,7 +10,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     max_length: 64
@@ -37,7 +37,7 @@ columns:
     required: true
 
 columns_order:
-  - id
+  - "$ID"
   - name
   - parent_category_id
   - description

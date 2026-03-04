@@ -4,7 +4,7 @@
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | sku | string | ✅ | min_length:3, max_length:64, regex:`^[A-Z0-9\-]+$` | |
 | name | string | ✅ | min_length:2, max_length:200 | |
 | description | string | ❌ | max_length:2000 | |
@@ -19,7 +19,7 @@
 
 ### Example Records
 
-| id | sku | name | category_id | supplier_id | image_id | unit_price | currency_id | stock_quantity |
+| $ID | sku | name | category_id | supplier_id | image_id | unit_price | currency_id | stock_quantity |
 |----|-----|------|-------------|-------------|----------|:----------:|:-----------:|:--------------:|
 | prod-001 | PHONE-X1-128 | Phone X1 128 GB | smartphones | sup-001 | img-001 | 799.99 | USD | 250 |
 | prod-002 | LAPTOP-PRO-15 | Laptop Pro 15" | laptops | sup-002 | img-003 | 1299.00 | USD | 80 |
@@ -43,7 +43,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     max_length: 64
@@ -99,7 +99,7 @@ columns:
     required: true
 
 columns_order:
-  - id
+  - "$ID"
   - sku
   - name
   - description

@@ -4,7 +4,7 @@
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | customer_id | string | ✅ | | [customers](../customers/) |
 | billing_address_id | string | ✅ | | [addresses](../addresses/) |
 | shipping_address_id | string | ✅ | | [addresses](../addresses/) |
@@ -24,7 +24,7 @@
 
 ### Example Records
 
-| id | customer_id | shipping_option_id | currency_id | status | subtotal | discount | tax | shipping | total | placed_at |
+| $ID | customer_id | shipping_option_id | currency_id | status | subtotal | discount | tax | shipping | total | placed_at |
 |----|------------|:------------------:|:-----------:|:------:|:--------:|:--------:|:---:|:--------:|:-----:|-----------|
 | ord-2024-0001 | cust-001 | fedex-standard | USD | delivered | 819.98 | 0.00 | 67.64 | 5.99 | 893.61 | 2024-02-14T10:32:00Z |
 | ord-2024-0002 | cust-002 | dhl-economy | EUR | shipped | 1299.00 | 129.90 | 93.53 | 3.99 | 1266.62 | 2024-03-01T16:45:00Z |
@@ -44,7 +44,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     max_length: 64
@@ -117,7 +117,7 @@ columns:
     max_length: 1000
 
 columns_order:
-  - id
+  - "$ID"
   - customer_id
   - billing_address_id
   - shipping_address_id

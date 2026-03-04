@@ -1,4 +1,3 @@
-id: fedex_standard
 shipper_id: fedex
 name: FedEx Standard Shipping
 service_level: standard

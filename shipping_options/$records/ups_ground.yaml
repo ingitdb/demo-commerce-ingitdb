@@ -1,4 +1,3 @@
-id: ups_ground
 shipper_id: ups
 name: UPS Ground
 service_level: standard

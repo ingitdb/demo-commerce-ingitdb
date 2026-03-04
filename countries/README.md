@@ -4,7 +4,7 @@
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | min_length:2, max_length:2, regex:`^[A-Z]{2}$` | |
+| $ID | string | ✅ | min_length:2, max_length:2, regex:`^[A-Z]{2}$` | |
 | name | string | ✅ | min_length:2, max_length:100 | |
 | currency_id | string | ✅ | | [currencies](../currencies/) |
 | phone_prefix | string | ✅ | regex:`^\+\d{1,4}$` | |
@@ -12,7 +12,7 @@
 
 ### Example Records
 
-| id | name | currency_id | phone_prefix | region |
+| $ID | name | currency_id | phone_prefix | region |
 |----|------|:-----------:|:------------:|--------|
 | US | United States | USD | +1 | Americas |
 | GB | United Kingdom | GBP | +44 | Europe |
@@ -41,7 +41,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     min_length: 2
@@ -69,7 +69,7 @@ columns:
     # enum: [Africa, Americas, Asia, Europe, Oceania]
 
 columns_order:
-  - id
+  - "$ID"
   - name
   - currency_id
   - phone_prefix

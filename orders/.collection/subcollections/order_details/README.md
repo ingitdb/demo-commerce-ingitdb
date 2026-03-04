@@ -12,7 +12,7 @@ record_file:
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | product_id | string | ✅ | | [products](../../../../products/) |
 | quantity | int | ✅ | min:1 | |
 | unit_price | float | ✅ | min:0 | |
@@ -24,7 +24,7 @@ record_file:
 
 > The records below belong to order `ord-2024-0001`.
 
-| id | product_id | quantity | unit_price | currency_id | discount_percent | line_total |
+| $ID | product_id | quantity | unit_price | currency_id | discount_percent | line_total |
 |----|:----------:|:--------:|:----------:|:-----------:|:----------------:|:----------:|
 | line-001 | prod-001 | 1 | 799.99 | USD | | 799.99 |
 | line-002 | prod-003 | 1 | 19.99 | USD | | 19.99 |

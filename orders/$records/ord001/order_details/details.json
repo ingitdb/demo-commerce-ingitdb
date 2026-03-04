@@ -1,6 +1,6 @@
 [
   {
-    "id": "od_ord001_001",
+    "$ID": "od_ord001_001",
     "product_id": "prod001",
     "quantity": 1,
     "unit_price": 1299.99,

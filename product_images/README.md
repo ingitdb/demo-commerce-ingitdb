@@ -4,7 +4,7 @@
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | url | string | ✅ | max_length:512, regex:`^https?://` | |
 | alt_text | string | ✅ | max_length:255 | |
 | width_px | int | ❌ | min:1 | |
@@ -13,7 +13,7 @@
 
 ### Example Records
 
-| id | url | alt_text | width_px | height_px |
+| $ID | url | alt_text | width_px | height_px |
 |----|-----|----------|:--------:|:---------:|
 | img-001 | https://cdn.example.com/products/phone-x1-front.jpg | Phone X1 front view | 1200 | 1200 |
 | img-002 | https://cdn.example.com/products/phone-x1-back.jpg | Phone X1 rear view | 1200 | 1200 |
@@ -37,7 +37,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     max_length: 64
@@ -68,7 +68,7 @@ columns:
     # min: 0
 
 columns_order:
-  - id
+  - "$ID"
   - url
   - alt_text
   - width_px

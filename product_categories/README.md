@@ -4,7 +4,7 @@
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | name | string | ✅ | min_length:2, max_length:100 | |
 | parent_category_id | string | ❌ | | [product_categories](../product_categories/) |
 | description | string | ❌ | max_length:500 | |
@@ -13,7 +13,7 @@
 
 ### Example Records
 
-| id | name | parent_category_id | sort_order | is_active |
+| $ID | name | parent_category_id | sort_order | is_active |
 |----|------|--------------------|:----------:|:---------:|
 | electronics | Electronics | | 1 | true |
 | smartphones | Smartphones | electronics | 1 | true |
@@ -40,7 +40,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     max_length: 64
@@ -67,7 +67,7 @@ columns:
     required: true
 
 columns_order:
-  - id
+  - "$ID"
   - name
   - parent_category_id
   - description

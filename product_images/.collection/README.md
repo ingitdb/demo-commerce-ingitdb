@@ -10,7 +10,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     max_length: 64
@@ -41,7 +41,7 @@ columns:
     # min: 0
 
 columns_order:
-  - id
+  - "$ID"
   - url
   - alt_text
   - width_px

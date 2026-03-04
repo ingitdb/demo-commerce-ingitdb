@@ -10,7 +10,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     min_length: 3
@@ -38,7 +38,7 @@ columns:
     required: true
 
 columns_order:
-  - id
+  - "$ID"
   - name
   - symbol
   - decimal_places

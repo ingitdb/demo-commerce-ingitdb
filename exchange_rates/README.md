@@ -4,7 +4,7 @@
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
-| id | string | ✅ | max_length:64 | |
+| $ID | string | ✅ | max_length:64 | |
 | from_currency_id | string | ✅ | | [currencies](../currencies/) |
 | to_currency_id | string | ✅ | | [currencies](../currencies/) |
 | rate | float | ✅ | min:0 | |
@@ -13,7 +13,7 @@
 
 ### Example Records
 
-| id | from_currency_id | to_currency_id | rate | effective_date | source |
+| $ID | from_currency_id | to_currency_id | rate | effective_date | source |
 |----|:----------------:|:--------------:|-----:|----------------|--------|
 | usd-eur-2024-01-01 | USD | EUR | 0.9182 | 2024-01-01 | ECB |
 | usd-gbp-2024-01-01 | USD | GBP | 0.7895 | 2024-01-01 | ECB |
@@ -34,7 +34,7 @@ record_file:
   format: yaml
 
 columns:
-  id:
+  "$ID":
     type: string
     required: true
     max_length: 64
@@ -60,7 +60,7 @@ columns:
     max_length: 128
 
 columns_order:
-  - id
+  - "$ID"
   - from_currency_id
   - to_currency_id
   - rate
