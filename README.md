@@ -487,8 +487,6 @@ graph LR
 | delivered_at | datetime | ❌ | | |
 | notes | string | ❌ | max_length:1000 | |
 
-> [order_details](#order_details) is a **subcollection** of this collection — line items are stored as
-> child records nested under each order record.
 
 ### Example Records
 
@@ -503,10 +501,6 @@ graph LR
 ## 📋 order_details
 
 > Line items for an order — each record is one product at a given quantity and unit price.
-
-**Subcollection of [orders](orders/)** — all line items for an order are stored together in a single
-`details.json` file under each order record
-(e.g. `orders/$records/ord-2024-0001/order_details/details.json`).
 
 `record_file`:
 ```yaml

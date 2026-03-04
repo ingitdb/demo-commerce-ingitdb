@@ -22,9 +22,6 @@
 | delivered_at | datetime | ❌ | | |
 | notes | string | ❌ | max_length:1000 | |
 
-> [order_details](../orders/) is a **subcollection** of this collection — line items are stored as
-> child records nested under each order record.
-
 ### Example Records
 
 | id | customer_id | shipping_option_id | currency_id | status | subtotal | discount | tax | shipping | total | placed_at |
