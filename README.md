@@ -1,5 +1,7 @@
 # 🛒 CRM Orders
 
+[![inGitDB](https://github.com/ingitdb/demo-commerce-ingitdb/actions/workflows/ingitdb.yml/badge.svg)](https://github.com/ingitdb/demo-commerce-ingitdb/actions/workflows/ingitdb.yml)
+
 > **Note**: This schema describes and relies on features of **inGitDB** that may not be fully implemented
 > yet. Its primary purpose is to drive development of inGitDB by serving as a comprehensive real-world use
 > case and to demonstrate its capabilities for business-critical applications.
@@ -16,6 +18,13 @@ query, and amend data with a text editor or `git blame`.
 This demo showcases inGitDB's support for **foreign-key relationships**, **subcollections**, **enum
 constraints**, **regex patterns**, cross-collection **referential integrity**, and **human-readable
 records**.
+
+## ⚙️ GitHub Actions Workflow
+
+A [GitHub Actions workflow](.github/workflows/ingitdb.yml) runs automatically on every push and pull request to `main`. It uses the [ingitdb-action](https://github.com/ingitdb/ingitdb-action) to:
+
+1. **Validate** — checks all collection schema definitions and verifies every record conforms to its collection's constraints (types, required fields, foreign keys, enums, regex patterns).
+2. **Materialize** — builds any defined views, resolving cross-collection references and producing materialized output.
 
 ## 📋 Collections Overview
 
