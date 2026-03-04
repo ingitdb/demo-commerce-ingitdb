@@ -30,20 +30,20 @@ A [GitHub Actions workflow](.github/workflows/ingitdb.yml) runs automatically on
 
 | Collection | Description |
 |------------|-------------|
-| [currencies](currencies/) | ISO 4217 currency definitions |
-| [exchange_rates](exchange_rates/) | Point-in-time currency exchange rates |
-| [countries](countries/) | ISO 3166-1 country codes and metadata |
-| [customers](customers/) | Customer accounts — the CRM core |
-| [addresses](addresses/) | Reusable billing and shipping addresses per customer |
-| [product_categories](product_categories/) | Hierarchical product taxonomy |
-| [product_images](product_images/) | Shareable product images |
-| [products](products/) | Product catalogue with pricing and inventory |
-| [suppliers](suppliers/) | Product suppliers and vendor contacts |
-| [shippers](shippers/) | Shipping carrier definitions |
-| [shipping_options](shipping_options/) | Service levels offered by each carrier |
-| [tax_rates](tax_rates/) | Tax rates by country and optional region |
-| [promotions](promotions/) | Discount codes and coupon campaigns |
-| [orders](orders/) | Customer order records |
+| [currencies](collections/currencies/) | ISO 4217 currency definitions |
+| [exchange_rates](collections/exchange_rates/) | Point-in-time currency exchange rates |
+| [countries](collections/countries/) | ISO 3166-1 country codes and metadata |
+| [customers](collections/customers/) | Customer accounts — the CRM core |
+| [addresses](collections/addresses/) | Reusable billing and shipping addresses per customer |
+| [product_categories](collections/product_categories/) | Hierarchical product taxonomy |
+| [product_images](collections/product_images/) | Shareable product images |
+| [products](collections/products/) | Product catalogue with pricing and inventory |
+| [suppliers](collections/suppliers/) | Product suppliers and vendor contacts |
+| [shippers](collections/shippers/) | Shipping carrier definitions |
+| [shipping_options](collections/shipping_options/) | Service levels offered by each carrier |
+| [tax_rates](collections/tax_rates/) | Tax rates by country and optional region |
+| [promotions](collections/promotions/) | Discount codes and coupon campaigns |
+| [orders](collections/orders/) | Customer order records |
 | [order_details](#order_details) | Line items — subcollection of orders |
 
 ## 🗺️ Data Model
@@ -79,7 +79,7 @@ graph LR
 
 ---
 
-## 💱 [currencies](currencies/)
+## 💱 [currencies](collections/currencies/)
 
 > ISO 4217 currency definitions — the monetary foundation for all pricing, rates, and orders.
 
@@ -103,26 +103,26 @@ graph LR
 
 ### Referrers of currencies
 
-- [exchange_rates](exchange_rates/): from_currency_id, to_currency_id
-- [countries](countries/): currency_id
-- [customers](customers/): preferred_currency_id
-- [products](products/): currency_id
-- [shipping_options](shipping_options/): currency_id
-- [promotions](promotions/): currency_id
-- [orders](orders/): currency_id
+- [exchange_rates](collections/exchange_rates/): from_currency_id, to_currency_id
+- [countries](collections/countries/): currency_id
+- [customers](collections/customers/): preferred_currency_id
+- [products](collections/products/): currency_id
+- [shipping_options](collections/shipping_options/): currency_id
+- [promotions](collections/promotions/): currency_id
+- [orders](collections/orders/): currency_id
 - [order_details](#order_details): currency_id
 
 ---
 
-## 📈 [exchange_rates](exchange_rates/)
+## 📈 [exchange_rates](collections/exchange_rates/)
 
 > Point-in-time exchange rates between currency pairs, used for multi-currency order reporting.
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
 | $ID | string | ✅ | max_length:64 | |
-| from_currency_id | string | ✅ | | [currencies](currencies/) |
-| to_currency_id | string | ✅ | | [currencies](currencies/) |
+| from_currency_id | string | ✅ | | [currencies](collections/currencies/) |
+| to_currency_id | string | ✅ | | [currencies](collections/currencies/) |
 | rate | float | ✅ | min:0 | |
 | effective_date | date | ✅ | | |
 | source | string | ❌ | max_length:128 | |
@@ -138,7 +138,7 @@ graph LR
 
 ---
 
-## 🌍 [countries](countries/)
+## 🌍 [countries](collections/countries/)
 
 > ISO 3166-1 alpha-2 country codes with default currency and dialling prefix.
 
@@ -146,7 +146,7 @@ graph LR
 |--------|------|:--------:|-------------|-------------|
 | $ID | string | ✅ | min_length:2, max_length:2, regex:`^[A-Z]{2}$` | |
 | name | string | ✅ | min_length:2, max_length:100 | |
-| currency_id | string | ✅ | | [currencies](currencies/) |
+| currency_id | string | ✅ | | [currencies](collections/currencies/) |
 | phone_prefix | string | ✅ | regex:`^\+\d{1,4}$` | |
 | region | string | ❌ | enum: Africa, Americas, Asia, Europe, Oceania | |
 
@@ -162,14 +162,14 @@ graph LR
 
 ### Referrers of countries
 
-- [customers](customers/): country_id
-- [addresses](addresses/): country_id
-- [suppliers](suppliers/): country_id
-- [tax_rates](tax_rates/): country_id
+- [customers](collections/customers/): country_id
+- [addresses](collections/addresses/): country_id
+- [suppliers](collections/suppliers/): country_id
+- [tax_rates](collections/tax_rates/): country_id
 
 ---
 
-## 👤 [customers](customers/)
+## 👤 [customers](collections/customers/)
 
 > Customer accounts — the CRM core record linking contacts, preferences, and order history.
 
@@ -180,8 +180,8 @@ graph LR
 | last_name | string | ✅ | min_length:1, max_length:64 | |
 | email | string | ✅ | max_length:254, regex:`^[^@\s]+@[^@\s]+\.[^@\s]+$` | |
 | phone | string | ❌ | regex:`^\+\d{7,15}$` | |
-| country_id | string | ✅ | | [countries](countries/) |
-| preferred_currency_id | string | ❌ | | [currencies](currencies/) |
+| country_id | string | ✅ | | [countries](collections/countries/) |
+| preferred_currency_id | string | ❌ | | [currencies](collections/currencies/) |
 | created_at | datetime | ✅ | | |
 | is_active | bool | ✅ | | |
 | notes | string | ❌ | max_length:1000 | |
@@ -197,26 +197,26 @@ graph LR
 
 ### Referrers of customers
 
-- [addresses](addresses/): customer_id
-- [orders](orders/): customer_id
+- [addresses](collections/addresses/): customer_id
+- [orders](collections/orders/): customer_id
 
 ---
 
-## 📍 [addresses](addresses/)
+## 📍 [addresses](collections/addresses/)
 
 > Reusable billing and shipping addresses, each linked to a customer and a country.
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
 | $ID | string | ✅ | max_length:64 | |
-| customer_id | string | ✅ | | [customers](customers/) |
+| customer_id | string | ✅ | | [customers](collections/customers/) |
 | label | string | ❌ | max_length:64 | |
 | line1 | string | ✅ | min_length:1, max_length:128 | |
 | line2 | string | ❌ | max_length:128 | |
 | city | string | ✅ | min_length:1, max_length:100 | |
 | state | string | ❌ | max_length:100 | |
 | postal_code | string | ✅ | min_length:1, max_length:20 | |
-| country_id | string | ✅ | | [countries](countries/) |
+| country_id | string | ✅ | | [countries](collections/countries/) |
 | is_default | bool | ✅ | | |
 
 ### Example Records
@@ -230,11 +230,11 @@ graph LR
 
 ### Referrers of addresses
 
-- [orders](orders/): billing_address_id, shipping_address_id
+- [orders](collections/orders/): billing_address_id, shipping_address_id
 
 ---
 
-## 🗂️ [product_categories](product_categories/)
+## 🗂️ [product_categories](collections/product_categories/)
 
 > Hierarchical product taxonomy — categories can nest under a parent category.
 
@@ -242,7 +242,7 @@ graph LR
 |--------|------|:--------:|-------------|-------------|
 | $ID | string | ✅ | max_length:64 | |
 | name | string | ✅ | min_length:2, max_length:100 | |
-| parent_category_id | string | ❌ | | [product_categories](product_categories/) |
+| parent_category_id | string | ❌ | | [product_categories](collections/product_categories/) |
 | description | string | ❌ | max_length:500 | |
 | sort_order | int | ❌ | min:0 | |
 | is_active | bool | ✅ | | |
@@ -259,12 +259,12 @@ graph LR
 
 ### Referrers of product_categories
 
-- [product_categories](product_categories/): parent_category_id (self-referential)
-- [products](products/): category_id
+- [product_categories](collections/product_categories/): parent_category_id (self-referential)
+- [products](collections/products/): category_id
 
 ---
 
-## 🖼️ [product_images](product_images/)
+## 🖼️ [product_images](collections/product_images/)
 
 > Shareable product images — a single image record can be referenced by multiple products.
 
@@ -287,11 +287,11 @@ graph LR
 
 ### Referrers of product_images
 
-- [products](products/): image_id
+- [products](collections/products/): image_id
 
 ---
 
-## 📦 [products](products/)
+## 📦 [products](collections/products/)
 
 > Product catalogue — each entry has a unique SKU, price, supplier, category, and live stock count.
 
@@ -301,11 +301,11 @@ graph LR
 | sku | string | ✅ | min_length:3, max_length:64, regex:`^[A-Z0-9\-]+$` | |
 | name | string | ✅ | min_length:2, max_length:200 | |
 | description | string | ❌ | max_length:2000 | |
-| category_id | string | ✅ | | [product_categories](product_categories/) |
-| supplier_id | string | ✅ | | [suppliers](suppliers/) |
-| image_id | string | ❌ | | [product_images](product_images/) |
+| category_id | string | ✅ | | [product_categories](collections/product_categories/) |
+| supplier_id | string | ✅ | | [suppliers](collections/suppliers/) |
+| image_id | string | ❌ | | [product_images](collections/product_images/) |
 | unit_price | float | ✅ | min:0.01 | |
-| currency_id | string | ✅ | | [currencies](currencies/) |
+| currency_id | string | ✅ | | [currencies](collections/currencies/) |
 | weight_kg | float | ❌ | min:0 | |
 | stock_quantity | int | ✅ | min:0 | |
 | is_active | bool | ✅ | | |
@@ -324,7 +324,7 @@ graph LR
 
 ---
 
-## 🏭 [suppliers](suppliers/)
+## 🏭 [suppliers](collections/suppliers/)
 
 > Vendor and supplier contacts for the products in the catalogue.
 
@@ -335,7 +335,7 @@ graph LR
 | contact_name | string | ❌ | max_length:100 | |
 | email | string | ✅ | max_length:254, regex:`^[^@\s]+@[^@\s]+\.[^@\s]+$` | |
 | phone | string | ❌ | regex:`^\+\d{7,15}$` | |
-| country_id | string | ✅ | | [countries](countries/) |
+| country_id | string | ✅ | | [countries](collections/countries/) |
 | website | string | ❌ | max_length:512, regex:`^https?://` | |
 | is_active | bool | ✅ | | |
 
@@ -349,11 +349,11 @@ graph LR
 
 ### Referrers of suppliers
 
-- [products](products/): supplier_id
+- [products](collections/products/): supplier_id
 
 ---
 
-## 🚚 [shippers](shippers/)
+## 🚚 [shippers](collections/shippers/)
 
 > Shipping carrier definitions — each shipper may offer multiple service levels.
 
@@ -378,22 +378,22 @@ graph LR
 
 ### Referrers of shippers
 
-- [shipping_options](shipping_options/): shipper_id
+- [shipping_options](collections/shipping_options/): shipper_id
 
 ---
 
-## 🚀 [shipping_options](shipping_options/)
+## 🚀 [shipping_options](collections/shipping_options/)
 
 > Service levels offered by each carrier — defines price, speed tier, and estimated transit days.
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
 | $ID | string | ✅ | max_length:64 | |
-| shipper_id | string | ✅ | | [shippers](shippers/) |
+| shipper_id | string | ✅ | | [shippers](collections/shippers/) |
 | name | string | ✅ | min_length:2, max_length:100 | |
 | service_level | string | ✅ | enum: economy, standard, express, overnight | |
 | base_price | float | ✅ | min:0 | |
-| currency_id | string | ✅ | | [currencies](currencies/) |
+| currency_id | string | ✅ | | [currencies](collections/currencies/) |
 | estimated_days_min | int | ✅ | min:0 | |
 | estimated_days_max | int | ✅ | min:0 | |
 | is_active | bool | ✅ | | |
@@ -409,18 +409,18 @@ graph LR
 
 ### Referrers of shipping_options
 
-- [orders](orders/): shipping_option_id
+- [orders](collections/orders/): shipping_option_id
 
 ---
 
-## 🧾 [tax_rates](tax_rates/)
+## 🧾 [tax_rates](collections/tax_rates/)
 
 > Tax rates per country and optional sub-region — applied when computing order tax amounts.
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
 | $ID | string | ✅ | max_length:64 | |
-| country_id | string | ✅ | | [countries](countries/) |
+| country_id | string | ✅ | | [countries](collections/countries/) |
 | region | string | ❌ | max_length:100 | |
 | label | string | ✅ | max_length:50 | |
 | rate_percent | float | ✅ | min:0, max:100 | |
@@ -439,7 +439,7 @@ graph LR
 
 ---
 
-## 🏷️ [promotions](promotions/)
+## 🏷️ [promotions](collections/promotions/)
 
 > Discount codes and coupon campaigns — applied to orders for percentage or fixed-amount discounts.
 
@@ -450,7 +450,7 @@ graph LR
 | description | string | ❌ | max_length:500 | |
 | discount_type | string | ✅ | enum: percent, fixed | |
 | discount_value | float | ✅ | min:0 | |
-| currency_id | string | ❌ | required when discount_type=`fixed` | [currencies](currencies/) |
+| currency_id | string | ❌ | required when discount_type=`fixed` | [currencies](collections/currencies/) |
 | min_order_amount | float | ❌ | min:0 | |
 | valid_from | date | ✅ | | |
 | valid_until | date | ❌ | | |
@@ -468,23 +468,23 @@ graph LR
 
 ### Referrers of promotions
 
-- [orders](orders/): promotion_id
+- [orders](collections/orders/): promotion_id
 
 ---
 
-## 🛒 [orders](orders/)
+## 🛒 [orders](collections/orders/)
 
 > Customer order records — captures the full purchase snapshot at the time of placement.
 
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
 | $ID | string | ✅ | max_length:64 | |
-| customer_id | string | ✅ | | [customers](customers/) |
-| billing_address_id | string | ✅ | | [addresses](addresses/) |
-| shipping_address_id | string | ✅ | | [addresses](addresses/) |
-| shipping_option_id | string | ✅ | | [shipping_options](shipping_options/) |
-| currency_id | string | ✅ | | [currencies](currencies/) |
-| promotion_id | string | ❌ | | [promotions](promotions/) |
+| customer_id | string | ✅ | | [customers](collections/customers/) |
+| billing_address_id | string | ✅ | | [addresses](collections/addresses/) |
+| shipping_address_id | string | ✅ | | [addresses](collections/addresses/) |
+| shipping_option_id | string | ✅ | | [shipping_options](collections/shipping_options/) |
+| currency_id | string | ✅ | | [currencies](collections/currencies/) |
+| promotion_id | string | ❌ | | [promotions](collections/promotions/) |
 | status | string | ✅ | enum: pending, confirmed, processing, shipped, delivered, cancelled, refunded | |
 | subtotal | float | ✅ | min:0 | |
 | discount_amount | float | ✅ | min:0 | |
@@ -522,10 +522,10 @@ record_file:
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
 | $ID | string | ✅ | max_length:64 | |
-| product_id | string | ✅ | | [products](products/) |
+| product_id | string | ✅ | | [products](collections/products/) |
 | quantity | int | ✅ | min:1 | |
 | unit_price | float | ✅ | min:0 | |
-| currency_id | string | ✅ | | [currencies](currencies/) |
+| currency_id | string | ✅ | | [currencies](collections/currencies/) |
 | discount_percent | float | ❌ | min:0, max:100 | |
 | line_total | float | ✅ | min:0 | |
 
