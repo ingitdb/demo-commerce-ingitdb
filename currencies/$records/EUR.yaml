@@ -1,0 +1,5 @@
+id: EUR
+name: Euro
+symbol: €
+decimal_places: 2
+is_active: true

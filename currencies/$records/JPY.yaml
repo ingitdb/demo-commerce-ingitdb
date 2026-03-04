@@ -1,0 +1,5 @@
+id: JPY
+name: Japanese Yen
+symbol: ¥
+decimal_places: 0
+is_active: true

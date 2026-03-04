@@ -1,0 +1,6 @@
+id: computers
+name: Computers
+parent_category_id: electronics
+description: Laptops, desktops and tablets
+sort_order: 2
+is_active: true

@@ -1,0 +1,5 @@
+id: ups
+name: UPS
+tracking_url_template: "https://www.ups.com/track?tracknum={tracking_number}"
+contact_email: "support@ups.com"
+is_active: true

@@ -1,0 +1,6 @@
+id: ca_federal_gst
+country_id: CA
+label: Federal GST
+rate_percent: 5.0
+effective_date: 2024-01-01
+is_active: true
