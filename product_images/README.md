@@ -1,6 +1,29 @@
-# Product Images
+# 🖼️ product_images
 
-Product image metadata including URL, alt text and dimensions.
+> Shareable product images — a single image record can be referenced by multiple products.
+
+| Column | Type | Required | Constraints | Foreign Key |
+|--------|------|:--------:|-------------|-------------|
+| id | string | ✅ | max_length:64 | |
+| url | string | ✅ | max_length:512, regex:`^https?://` | |
+| alt_text | string | ✅ | max_length:255 | |
+| width_px | int | ❌ | min:1 | |
+| height_px | int | ❌ | min:1 | |
+| sort_order | int | ❌ | min:0 | |
+
+### Example Records
+
+| id | url | alt_text | width_px | height_px |
+|----|-----|----------|:--------:|:---------:|
+| img-001 | https://cdn.example.com/products/phone-x1-front.jpg | Phone X1 front view | 1200 | 1200 |
+| img-002 | https://cdn.example.com/products/phone-x1-back.jpg | Phone X1 rear view | 1200 | 1200 |
+| img-003 | https://cdn.example.com/products/laptop-pro-15.jpg | Laptop Pro 15 side view | 1600 | 900 |
+
+### Referrers of product_images
+
+- [products](#products): image_id
+
+---
 
 ## Collection Definition
 

@@ -1,6 +1,33 @@
-# Shipping Options
+# 🚀 shipping_options
 
-Shipping service levels offered by each carrier, including pricing and estimated delivery times.
+> Service levels offered by each carrier — defines price, speed tier, and estimated transit days.
+
+| Column | Type | Required | Constraints | Foreign Key |
+|--------|------|:--------:|-------------|-------------|
+| id | string | ✅ | max_length:64 | |
+| shipper_id | string | ✅ | | [shippers](#shippers) |
+| name | string | ✅ | min_length:2, max_length:100 | |
+| service_level | string | ✅ | enum: economy, standard, express, overnight | |
+| base_price | float | ✅ | min:0 | |
+| currency_id | string | ✅ | | [currencies](#currencies) |
+| estimated_days_min | int | ✅ | min:0 | |
+| estimated_days_max | int | ✅ | min:0 | |
+| is_active | bool | ✅ | | |
+
+### Example Records
+
+| id | shipper_id | name | service_level | base_price | currency_id | est. days min | est. days max |
+|----|:----------:|------|:-------------:|:----------:|:-----------:|:-------------:|:-------------:|
+| fedex-standard | fedex | FedEx Standard | standard | 5.99 | USD | 3 | 5 |
+| fedex-express | fedex | FedEx Express | express | 14.99 | USD | 1 | 2 |
+| ups-overnight | ups | UPS Overnight | overnight | 29.99 | USD | 1 | 1 |
+| dhl-economy | dhl | DHL Economy | economy | 3.99 | USD | 5 | 10 |
+
+### Referrers of shipping_options
+
+- [orders](#orders): shipping_option_id
+
+---
 
 ## Collection Definition
 

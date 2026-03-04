@@ -1,6 +1,35 @@
-# Products
+# 📦 products
 
-Product catalogue with pricing, supplier, category and inventory information.
+> Product catalogue — each entry has a unique SKU, price, supplier, category, and live stock count.
+
+| Column | Type | Required | Constraints | Foreign Key |
+|--------|------|:--------:|-------------|-------------|
+| id | string | ✅ | max_length:64 | |
+| sku | string | ✅ | min_length:3, max_length:64, regex:`^[A-Z0-9\-]+$` | |
+| name | string | ✅ | min_length:2, max_length:200 | |
+| description | string | ❌ | max_length:2000 | |
+| category_id | string | ✅ | | [product_categories](#product_categories) |
+| supplier_id | string | ✅ | | [suppliers](#suppliers) |
+| image_id | string | ❌ | | [product_images](#product_images) |
+| unit_price | float | ✅ | min:0.01 | |
+| currency_id | string | ✅ | | [currencies](#currencies) |
+| weight_kg | float | ❌ | min:0 | |
+| stock_quantity | int | ✅ | min:0 | |
+| is_active | bool | ✅ | | |
+
+### Example Records
+
+| id | sku | name | category_id | supplier_id | image_id | unit_price | currency_id | stock_quantity |
+|----|-----|------|-------------|-------------|----------|:----------:|:-----------:|:--------------:|
+| prod-001 | PHONE-X1-128 | Phone X1 128 GB | smartphones | sup-001 | img-001 | 799.99 | USD | 250 |
+| prod-002 | LAPTOP-PRO-15 | Laptop Pro 15" | laptops | sup-002 | img-003 | 1299.00 | USD | 80 |
+| prod-003 | CASE-X1-BLK | Phone X1 Black Case | cases | sup-003 | | 19.99 | USD | 500 |
+
+### Referrers of products
+
+- [order_details](#order_details): product_id
+
+---
 
 ## Collection Definition
 

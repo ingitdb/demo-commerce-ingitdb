@@ -1,6 +1,32 @@
-# Product Categories
+# 🗂️ product_categories
 
-Hierarchical product categories supporting parent/child relationships.
+> Hierarchical product taxonomy — categories can nest under a parent category.
+
+| Column | Type | Required | Constraints | Foreign Key |
+|--------|------|:--------:|-------------|-------------|
+| id | string | ✅ | max_length:64 | |
+| name | string | ✅ | min_length:2, max_length:100 | |
+| parent_category_id | string | ❌ | | [product_categories](#product_categories) |
+| description | string | ❌ | max_length:500 | |
+| sort_order | int | ❌ | min:0 | |
+| is_active | bool | ✅ | | |
+
+### Example Records
+
+| id | name | parent_category_id | sort_order | is_active |
+|----|------|--------------------|:----------:|:---------:|
+| electronics | Electronics | | 1 | true |
+| smartphones | Smartphones | electronics | 1 | true |
+| laptops | Laptops | electronics | 2 | true |
+| accessories | Accessories | | 2 | true |
+| cases | Cases & Covers | accessories | 1 | true |
+
+### Referrers of product_categories
+
+- [product_categories](#product_categories): parent_category_id (self-referential)
+- [products](#products): category_id
+
+---
 
 ## Collection Definition
 

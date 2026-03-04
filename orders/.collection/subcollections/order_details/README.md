@@ -1,57 +1,34 @@
-# Order Details — Subcollection Definition
+# 📋 order_details
 
-Line items belonging to a specific order. Stored as a JSON array at `orders/$records/{order_key}/order_details/details.json`.
+> Line items for an order — each record is one product at a given quantity and unit price.
 
+**Subcollection of [orders](#orders)** — all line items for an order are stored together in a single
+`details.json` file under each order record
+(e.g. `orders/$records/ord-2024-0001/order_details/details.json`).
+
+`record_file`:
 ```yaml
-titles:
-  en: Order Details
-
 record_file:
   name: "details.json"
   type: "[]map[string]any"
   format: json
-
-columns:
-  id:
-    type: string
-    required: true
-    max_length: 64
-  product_id:
-    type: string
-    required: true
-    foreign_key: products
-  quantity:
-    type: int
-    required: true
-    # TODO: min value constraint needs implementation in ColumnDef
-    # min: 1
-  unit_price:
-    type: float
-    required: true
-    # TODO: min value constraint needs implementation in ColumnDef
-    # min: 0
-  currency_id:
-    type: string
-    required: true
-    foreign_key: currencies
-  discount_percent:
-    type: float
-    required: false
-    # TODO: min/max value constraints need implementation in ColumnDef
-    # min: 0
-    # max: 100
-  line_total:
-    type: float
-    required: true
-    # TODO: min value constraint needs implementation in ColumnDef
-    # min: 0
-
-columns_order:
-  - id
-  - product_id
-  - quantity
-  - unit_price
-  - currency_id
-  - discount_percent
-  - line_total
 ```
+
+| Column | Type | Required | Constraints | Foreign Key |
+|--------|------|:--------:|-------------|-------------|
+| id | string | ✅ | max_length:64 | |
+| product_id | string | ✅ | | [products](#products) |
+| quantity | int | ✅ | min:1 | |
+| unit_price | float | ✅ | min:0 | |
+| currency_id | string | ✅ | | [currencies](#currencies) |
+| discount_percent | float | ❌ | min:0, max:100 | |
+| line_total | float | ✅ | min:0 | |
+
+### Example Records
+
+> The records below belong to order `ord-2024-0001`.
+
+| id | product_id | quantity | unit_price | currency_id | discount_percent | line_total |
+|----|:----------:|:--------:|:----------:|:-----------:|:----------------:|:----------:|
+| line-001 | prod-001 | 1 | 799.99 | USD | | 799.99 |
+| line-002 | prod-003 | 1 | 19.99 | USD | | 19.99 |

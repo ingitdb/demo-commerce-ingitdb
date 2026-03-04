@@ -1,6 +1,35 @@
-# Customers
+# 👤 customers
 
-Customer accounts — the core of the CRM. Includes contact info, country and preferred currency.
+> Customer accounts — the CRM core record linking contacts, preferences, and order history.
+
+| Column | Type | Required | Constraints | Foreign Key |
+|--------|------|:--------:|-------------|-------------|
+| id | string | ✅ | max_length:64 | |
+| first_name | string | ✅ | min_length:1, max_length:64 | |
+| last_name | string | ✅ | min_length:1, max_length:64 | |
+| email | string | ✅ | max_length:254, regex:`^[^@\s]+@[^@\s]+\.[^@\s]+$` | |
+| phone | string | ❌ | regex:`^\+\d{7,15}$` | |
+| country_id | string | ✅ | | [countries](#countries) |
+| preferred_currency_id | string | ❌ | | [currencies](#currencies) |
+| created_at | datetime | ✅ | | |
+| is_active | bool | ✅ | | |
+| notes | string | ❌ | max_length:1000 | |
+
+### Example Records
+
+| id | first_name | last_name | email | phone | country_id | preferred_currency_id | is_active |
+|----|-----------|-----------|-------|-------|:----------:|:--------------------:|:---------:|
+| cust-001 | Alice | Johnson | alice.johnson@example.com | +14155550101 | US | USD | true |
+| cust-002 | Bruno | Müller | bruno.mueller@example.de | +4930555012 | DE | EUR | true |
+| cust-003 | Yuki | Tanaka | yuki.tanaka@example.jp | +81312345678 | JP | JPY | true |
+| cust-004 | Sarah | Williams | sarah.w@example.co.uk | +447911123456 | GB | GBP | true |
+
+### Referrers of customers
+
+- [addresses](#addresses): customer_id
+- [orders](#orders): customer_id
+
+---
 
 ## Collection Definition
 

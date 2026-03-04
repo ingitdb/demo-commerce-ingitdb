@@ -1,6 +1,39 @@
-# Orders
+# 🛒 orders
 
-Customer orders with totals, status, shipping and optional promotion applied.
+> Customer order records — captures the full purchase snapshot at the time of placement.
+
+| Column | Type | Required | Constraints | Foreign Key |
+|--------|------|:--------:|-------------|-------------|
+| id | string | ✅ | max_length:64 | |
+| customer_id | string | ✅ | | [customers](#customers) |
+| billing_address_id | string | ✅ | | [addresses](#addresses) |
+| shipping_address_id | string | ✅ | | [addresses](#addresses) |
+| shipping_option_id | string | ✅ | | [shipping_options](#shipping_options) |
+| currency_id | string | ✅ | | [currencies](#currencies) |
+| promotion_id | string | ❌ | | [promotions](#promotions) |
+| status | string | ✅ | enum: pending, confirmed, processing, shipped, delivered, cancelled, refunded | |
+| subtotal | float | ✅ | min:0 | |
+| discount_amount | float | ✅ | min:0 | |
+| tax_amount | float | ✅ | min:0 | |
+| shipping_amount | float | ✅ | min:0 | |
+| total_amount | float | ✅ | min:0 | |
+| placed_at | datetime | ✅ | | |
+| shipped_at | datetime | ❌ | | |
+| delivered_at | datetime | ❌ | | |
+| notes | string | ❌ | max_length:1000 | |
+
+> [order_details](#order_details) is a **subcollection** of this collection — line items are stored as
+> child records nested under each order record.
+
+### Example Records
+
+| id | customer_id | shipping_option_id | currency_id | status | subtotal | discount | tax | shipping | total | placed_at |
+|----|------------|:------------------:|:-----------:|:------:|:--------:|:--------:|:---:|:--------:|:-----:|-----------|
+| ord-2024-0001 | cust-001 | fedex-standard | USD | delivered | 819.98 | 0.00 | 67.64 | 5.99 | 893.61 | 2024-02-14T10:32:00Z |
+| ord-2024-0002 | cust-002 | dhl-economy | EUR | shipped | 1299.00 | 129.90 | 93.53 | 3.99 | 1266.62 | 2024-03-01T16:45:00Z |
+| ord-2024-0003 | cust-001 | fedex-express | USD | processing | 19.99 | 0.00 | 1.65 | 14.99 | 36.63 | 2024-03-18T09:10:00Z |
+
+---
 
 ## Collection Definition
 
