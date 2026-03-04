@@ -21,7 +21,7 @@
 
 ### Referrers of product_images
 
-- [products](#products): image_id
+- [products](../products/): image_id
 
 ---
 

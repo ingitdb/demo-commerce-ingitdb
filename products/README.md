@@ -8,11 +8,11 @@
 | sku | string | ✅ | min_length:3, max_length:64, regex:`^[A-Z0-9\-]+$` | |
 | name | string | ✅ | min_length:2, max_length:200 | |
 | description | string | ❌ | max_length:2000 | |
-| category_id | string | ✅ | | [product_categories](#product_categories) |
-| supplier_id | string | ✅ | | [suppliers](#suppliers) |
-| image_id | string | ❌ | | [product_images](#product_images) |
+| category_id | string | ✅ | | [product_categories](../product_categories/) |
+| supplier_id | string | ✅ | | [suppliers](../suppliers/) |
+| image_id | string | ❌ | | [product_images](../product_images/) |
 | unit_price | float | ✅ | min:0.01 | |
-| currency_id | string | ✅ | | [currencies](#currencies) |
+| currency_id | string | ✅ | | [currencies](../currencies/) |
 | weight_kg | float | ❌ | min:0 | |
 | stock_quantity | int | ✅ | min:0 | |
 | is_active | bool | ✅ | | |
@@ -27,7 +27,7 @@
 
 ### Referrers of products
 
-- [order_details](#order_details): product_id
+- [order_details](../orders/): product_id
 
 ---
 

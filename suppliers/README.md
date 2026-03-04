@@ -9,7 +9,7 @@
 | contact_name | string | ❌ | max_length:100 | |
 | email | string | ✅ | max_length:254, regex:`^[^@\s]+@[^@\s]+\.[^@\s]+$` | |
 | phone | string | ❌ | regex:`^\+\d{7,15}$` | |
-| country_id | string | ✅ | | [countries](#countries) |
+| country_id | string | ✅ | | [countries](../countries/) |
 | website | string | ❌ | max_length:512, regex:`^https?://` | |
 | is_active | bool | ✅ | | |
 
@@ -23,7 +23,7 @@
 
 ### Referrers of suppliers
 
-- [products](#products): supplier_id
+- [products](../products/): supplier_id
 
 ---
 

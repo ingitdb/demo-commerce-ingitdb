@@ -5,8 +5,8 @@
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
 | id | string | ✅ | max_length:64 | |
-| from_currency_id | string | ✅ | | [currencies](#currencies) |
-| to_currency_id | string | ✅ | | [currencies](#currencies) |
+| from_currency_id | string | ✅ | | [currencies](../currencies/) |
+| to_currency_id | string | ✅ | | [currencies](../currencies/) |
 | rate | float | ✅ | min:0 | |
 | effective_date | date | ✅ | | |
 | source | string | ❌ | max_length:128 | |

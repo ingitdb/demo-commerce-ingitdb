@@ -5,14 +5,14 @@
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
 | id | string | ✅ | max_length:64 | |
-| customer_id | string | ✅ | | [customers](#customers) |
+| customer_id | string | ✅ | | [customers](../customers/) |
 | label | string | ❌ | max_length:64 | |
 | line1 | string | ✅ | min_length:1, max_length:128 | |
 | line2 | string | ❌ | max_length:128 | |
 | city | string | ✅ | min_length:1, max_length:100 | |
 | state | string | ❌ | max_length:100 | |
 | postal_code | string | ✅ | min_length:1, max_length:20 | |
-| country_id | string | ✅ | | [countries](#countries) |
+| country_id | string | ✅ | | [countries](../countries/) |
 | is_default | bool | ✅ | | |
 
 ### Example Records
@@ -26,7 +26,7 @@
 
 ### Referrers of addresses
 
-- [orders](#orders): billing_address_id, shipping_address_id
+- [orders](../orders/): billing_address_id, shipping_address_id
 
 ---
 

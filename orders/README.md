@@ -5,12 +5,12 @@
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
 | id | string | ✅ | max_length:64 | |
-| customer_id | string | ✅ | | [customers](#customers) |
-| billing_address_id | string | ✅ | | [addresses](#addresses) |
-| shipping_address_id | string | ✅ | | [addresses](#addresses) |
-| shipping_option_id | string | ✅ | | [shipping_options](#shipping_options) |
-| currency_id | string | ✅ | | [currencies](#currencies) |
-| promotion_id | string | ❌ | | [promotions](#promotions) |
+| customer_id | string | ✅ | | [customers](../customers/) |
+| billing_address_id | string | ✅ | | [addresses](../addresses/) |
+| shipping_address_id | string | ✅ | | [addresses](../addresses/) |
+| shipping_option_id | string | ✅ | | [shipping_options](../shipping_options/) |
+| currency_id | string | ✅ | | [currencies](../currencies/) |
+| promotion_id | string | ❌ | | [promotions](../promotions/) |
 | status | string | ✅ | enum: pending, confirmed, processing, shipped, delivered, cancelled, refunded | |
 | subtotal | float | ✅ | min:0 | |
 | discount_amount | float | ✅ | min:0 | |
@@ -22,7 +22,7 @@
 | delivered_at | datetime | ❌ | | |
 | notes | string | ❌ | max_length:1000 | |
 
-> [order_details](#order_details) is a **subcollection** of this collection — line items are stored as
+> [order_details](../orders/) is a **subcollection** of this collection — line items are stored as
 > child records nested under each order record.
 
 ### Example Records

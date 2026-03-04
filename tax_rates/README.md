@@ -5,7 +5,7 @@
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
 | id | string | ✅ | max_length:64 | |
-| country_id | string | ✅ | | [countries](#countries) |
+| country_id | string | ✅ | | [countries](../countries/) |
 | region | string | ❌ | max_length:100 | |
 | label | string | ✅ | max_length:50 | |
 | rate_percent | float | ✅ | min:0, max:100 | |

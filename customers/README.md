@@ -9,8 +9,8 @@
 | last_name | string | ✅ | min_length:1, max_length:64 | |
 | email | string | ✅ | max_length:254, regex:`^[^@\s]+@[^@\s]+\.[^@\s]+$` | |
 | phone | string | ❌ | regex:`^\+\d{7,15}$` | |
-| country_id | string | ✅ | | [countries](#countries) |
-| preferred_currency_id | string | ❌ | | [currencies](#currencies) |
+| country_id | string | ✅ | | [countries](../countries/) |
+| preferred_currency_id | string | ❌ | | [currencies](../currencies/) |
 | created_at | datetime | ✅ | | |
 | is_active | bool | ✅ | | |
 | notes | string | ❌ | max_length:1000 | |
@@ -26,8 +26,8 @@
 
 ### Referrers of customers
 
-- [addresses](#addresses): customer_id
-- [orders](#orders): customer_id
+- [addresses](../addresses/): customer_id
+- [orders](../orders/): customer_id
 
 ---
 

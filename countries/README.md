@@ -6,7 +6,7 @@
 |--------|------|:--------:|-------------|-------------|
 | id | string | ✅ | min_length:2, max_length:2, regex:`^[A-Z]{2}$` | |
 | name | string | ✅ | min_length:2, max_length:100 | |
-| currency_id | string | ✅ | | [currencies](#currencies) |
+| currency_id | string | ✅ | | [currencies](../currencies/) |
 | phone_prefix | string | ✅ | regex:`^\+\d{1,4}$` | |
 | region | string | ❌ | enum: Africa, Americas, Asia, Europe, Oceania | |
 
@@ -22,10 +22,10 @@
 
 ### Referrers of countries
 
-- [customers](#customers): country_id
-- [addresses](#addresses): country_id
-- [suppliers](#suppliers): country_id
-- [tax_rates](#tax_rates): country_id
+- [customers](../customers/): country_id
+- [addresses](../addresses/): country_id
+- [suppliers](../suppliers/): country_id
+- [tax_rates](../tax_rates/): country_id
 
 ---
 

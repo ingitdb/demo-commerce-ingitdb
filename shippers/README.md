@@ -23,7 +23,7 @@
 
 ### Referrers of shippers
 
-- [shipping_options](#shipping_options): shipper_id
+- [shipping_options](../shipping_options/): shipper_id
 
 ---
 

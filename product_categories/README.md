@@ -6,7 +6,7 @@
 |--------|------|:--------:|-------------|-------------|
 | id | string | ✅ | max_length:64 | |
 | name | string | ✅ | min_length:2, max_length:100 | |
-| parent_category_id | string | ❌ | | [product_categories](#product_categories) |
+| parent_category_id | string | ❌ | | [product_categories](../product_categories/) |
 | description | string | ❌ | max_length:500 | |
 | sort_order | int | ❌ | min:0 | |
 | is_active | bool | ✅ | | |
@@ -23,8 +23,8 @@
 
 ### Referrers of product_categories
 
-- [product_categories](#product_categories): parent_category_id (self-referential)
-- [products](#products): category_id
+- [product_categories](../product_categories/): parent_category_id (self-referential)
+- [products](../products/): category_id
 
 ---
 

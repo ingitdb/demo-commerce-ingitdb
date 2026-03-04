@@ -22,14 +22,14 @@
 
 ### Referrers of currencies
 
-- [exchange_rates](#exchange_rates): from_currency_id, to_currency_id
-- [countries](#countries): currency_id
-- [customers](#customers): preferred_currency_id
-- [products](#products): currency_id
-- [shipping_options](#shipping_options): currency_id
-- [promotions](#promotions): currency_id
-- [orders](#orders): currency_id
-- [order_details](#order_details): currency_id
+- [exchange_rates](../exchange_rates/): from_currency_id, to_currency_id
+- [countries](../countries/): currency_id
+- [customers](../customers/): preferred_currency_id
+- [products](../products/): currency_id
+- [shipping_options](../shipping_options/): currency_id
+- [promotions](../promotions/): currency_id
+- [orders](../orders/): currency_id
+- [order_details](../orders/): currency_id
 
 ---
 

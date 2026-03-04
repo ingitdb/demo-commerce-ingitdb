@@ -5,11 +5,11 @@
 | Column | Type | Required | Constraints | Foreign Key |
 |--------|------|:--------:|-------------|-------------|
 | id | string | ✅ | max_length:64 | |
-| shipper_id | string | ✅ | | [shippers](#shippers) |
+| shipper_id | string | ✅ | | [shippers](../shippers/) |
 | name | string | ✅ | min_length:2, max_length:100 | |
 | service_level | string | ✅ | enum: economy, standard, express, overnight | |
 | base_price | float | ✅ | min:0 | |
-| currency_id | string | ✅ | | [currencies](#currencies) |
+| currency_id | string | ✅ | | [currencies](../currencies/) |
 | estimated_days_min | int | ✅ | min:0 | |
 | estimated_days_max | int | ✅ | min:0 | |
 | is_active | bool | ✅ | | |
@@ -25,7 +25,7 @@
 
 ### Referrers of shipping_options
 
-- [orders](#orders): shipping_option_id
+- [orders](../orders/): shipping_option_id
 
 ---
 

@@ -9,7 +9,7 @@
 | description | string | ❌ | max_length:500 | |
 | discount_type | string | ✅ | enum: percent, fixed | |
 | discount_value | float | ✅ | min:0 | |
-| currency_id | string | ❌ | required when discount_type=`fixed` | [currencies](#currencies) |
+| currency_id | string | ❌ | required when discount_type=`fixed` | [currencies](../currencies/) |
 | min_order_amount | float | ❌ | min:0 | |
 | valid_from | date | ✅ | | |
 | valid_until | date | ❌ | | |
@@ -27,7 +27,7 @@
 
 ### Referrers of promotions
 
-- [orders](#orders): promotion_id
+- [orders](../orders/): promotion_id
 
 ---
 
