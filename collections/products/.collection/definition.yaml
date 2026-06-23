@@ -2,9 +2,11 @@ titles:
   en: Products
 
 record_file:
-  name: "{key}.yaml"
+  name: "{key}.md"
   type: "map[string]any"
-  format: yaml
+  format: markdown
+  content_field: description
+  exclude_regex: '^README\.md$'
 
 columns:
   "$ID":
@@ -27,6 +29,7 @@ columns:
     type: string
     required: false
     max_length: 2000
+    format: markdown
   category_id:
     type: string
     required: true
